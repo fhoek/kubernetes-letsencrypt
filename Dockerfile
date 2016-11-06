@@ -1,16 +1,14 @@
-FROM quay.io/letsencrypt/letsencrypt
+FROM quay.io/letsencrypt/letsencrypt:master
 
-MAINTAINER Eli Mallon <eli@iame.li>
+MAINTAINER Frank van den Hoek <f.vandenhoek@trancon.nl>
 
-ENV KUBE_LATEST_VERSION="v1.1.3"
-ENV KUBE_URL="https://github.com/kubernetes/kubernetes/releases/download/${KUBE_LATEST_VERSION}/kubernetes.tar.gz"
+ENV KUBE_LATEST_VERSION="v1.4.3"
+ENV KUBECTL_URL="https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl"
 
 # No curl or wget -- what the hey, let's just download kubernetes with a python one-liner.
 RUN cd /usr/bin && \
-  python -c "from urllib import urlretrieve; urlretrieve('$KUBE_URL', 'kubernetes-latest.tar.gz')" && \
-  tar xzf kubernetes-latest.tar.gz && \
-  mv kubernetes/platforms/linux/amd64/kubectl ./kubectl && \
-  rm -rf ./kubernetes-latest.tar.gz ./kubernetes && \
+  python -c "from urllib import urlretrieve; urlretrieve('$KUBECTL_URL', 'kubectl')" && \
+  chmod +x kubectl && \ 
   mkdir /webroot
 
 WORKDIR /app

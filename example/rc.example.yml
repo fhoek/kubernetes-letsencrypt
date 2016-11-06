@@ -23,15 +23,15 @@ spec:
           - name: tos
             value: "true"
           - name: country
-            value: US
+            value: NL
           - name: state
-            value: Washington
+            value: NH
           - name: town
-            value: Seattle
+            value: Nieuw Vennep
           - name: organization
-            value: Dandiprat Industries
+            value: Trancon B.V.
           - name: email
-            value: eli@streamprov.com
+            value: admin@trancon.nl
           - name: secretName
             value: letsencrypt-ssl
           - name: acmeServer

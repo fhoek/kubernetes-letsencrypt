@@ -1,6 +1,6 @@
 
 all: .
-	docker build -t iameli/kubernetes-letsencrypt .
+	docker build -t eu.gcr.io/kenjewerk/kubernetes-letsencrypt .
 
 push:
-	docker push iameli/kubernetes-letsencrypt
+	gcloud docker push eu.gcr.io/kenjewerk/kubernetes-letsencrypt

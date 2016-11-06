@@ -5,5 +5,5 @@ import json
 import sys
 out = {}
 for arg in sys.argv[1:]:
-  out[arg] = 'kube/webroot'
+  out[arg] = '/webroot'
 print json.dumps(out)
